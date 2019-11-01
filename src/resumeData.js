@@ -1,95 +1,79 @@
 let resumeData = {
-    "imagebaseurl":"https://rbhatia46.github.io/",
-    "name": "Rahul Bhatia",
-    "role": "Frontend Developer and Data Scientist",
-    "linkedinId":"Your LinkedIn Id",
-    "skypeid": "Your skypeid",
-    "roleDescription": "I like dabbling in various parts of frontend development and like to learn about new technologies, write technical articles or simply play games in my free time.",
+    "imagebaseurl":"https://www.linkedin.com/in/shengrui-cen/",
+    "name": "Shengrui Cen",
+    "role": "a Programmer/Product Developer/Innovator",
+    "linkedinId":"shengrui-cen",
+    "skypeid": "carlcen93",
+    "roleDescription": "I believe human can make the world a better place to live in not only for human but also for all the living beings by ethical design and responsible technology improvements.",
     "socialLinks":[
         {
           "name":"linkedin",
-          "url":"https://www.linkedin.com/in/rahul-bhatia-67ba08121/",
+          "url":"https://www.linkedin.com/in/shengrui-cen/",
           "className":"fa fa-linkedin"
         },
         {
           "name":"github",
-          "url":"http://github.com/rbhatia46",
+          "url":"https://github.com/arthur-cen",
           "className":"fa fa-github"
-        },
-        {
-          "name":"skype",
-          "url":"http://twitter.com/rbhatia46",
-          "className":"fa fa-twitter"
         }
       ],
-    "aboutme":"I am currently a pre-final year student at The LNM Institute of Information Technology and pursuing my B.Tech from here. I am a self taught Full Stack Web Developer, currently diving deeper into Machine Learning. I believe that to be successful in life, one needs to be obsessive with their dreams and keep working towards them.",
-    "address":"India",
-    "website":"https://rbhatia46.github.io",
+    "aboutme":"I am a current student studying Innovative Product and Services in Carnegie Mellon University, Integrated Innovation Institute. I believe good product and services design elicit happiness in people and creates a better environment.",
+    "address":"Carnegie Mellon University",
+    "website":"https://arthurcen.me",
     "education":[
       {
-        "UniversityName":"The LNM Insitute of Information Technology",
-        "specialization":"Some specialization",
-        "MonthOfPassing":"Aug",
+        "UniversityName":"Carnegie Mellon University",
+        "specialization":"Master of Integrated Innovation for Product and Services",
+        "MonthOfPassing":"Dec",
         "YearOfPassing":"2020",
-        "Achievements":"Some Achievements"
+        "Achievements":""
       },
       {
-        "UniversityName":"Some University",
-        "specialization":"Some specialization",
-        "MonthOfPassing":"Jan",
-        "YearOfPassing":"2018",
-        "Achievements":"Some Achievements"
+        "UniversityName":"University of California, Berkeley",
+        "specialization":"Computer Science B.S. and Environmental Science B.S.",
+        "MonthOfPassing":"May",
+        "YearOfPassing":"2017",
+        "Achievements":""
       }
     ],
     "work":[
       {
-        "CompanyName":"Some Company",
-        "specialization":"Some specialization",
-        "MonthOfLeaving":"Jan",
-        "YearOfLeaving":"2018",
-        "Achievements":"Some Achievements"
+        "CompanyName":"GameCommerce, Inc.",
+        "specialization":"Software Engineer",
+        "MonthOfLeaving":"May",
+        "YearOfLeaving":"2019",
+        "Achievements":"Created engaging Mobile gamified ads experience. Built Platform Quest.Ai that enable designers to create engaging contents without coding experience."
       },
       {
-        "CompanyName":"Some Company",
-        "specialization":"Some specialization",
-        "MonthOfLeaving":"Jan",
-        "YearOfLeaving":"2018",
-        "Achievements":"Some Achievements"
+        "CompanyName":"Global Footprint Network",
+        "specialization":"Research Analyst Intern",
+        "MonthOfLeaving":"July",
+        "YearOfLeaving":"2016",
+        "Achievements":"Optimized runtime of Annual Forest Growth Rate calculation by a degree of 3. Streamlined data processing and analyzing using R."
       }
     ],
-    "skillsDescription":"Your skills here",
+    "skillsDescription":"Programming Skills",
     "skills":[
       {
         "skillname":"HTML5"
       },
       {
+        "skillname":"Reactjs"
+      },
+      {
         "skillname":"CSS"
       },
       {
-        "skillname":"Reactjs"
+        "skillname": "Python"
       }
     ],
     "portfolio":[
       {
-        "name":"project1",
-        "description":"mobileapp",
-        "imgurl":"images/portfolio/phone.jpg"
+        "name":"SmartSort Kiosk",
+        "description":"A Smart Trash Bin Kiosk categorizes trash using CV based Artificial Intelligence. ",
+        "imgurl":"images/portfolio/smartSortKiosk.png",
+        "projectUrl": "https://github.com/arthur-cen/smartTrashBin/blob/master/smart_sort.ipynb"
       },
-      {
-        "name":"project2",
-        "description":"mobileapp",
-        "imgurl":"images/portfolio/project.jpg"
-      },
-      {
-        "name":"project3",
-        "description":"mobileapp",  
-        "imgurl":"images/portfolio/project2.png"
-      },
-      {
-        "name":"project4",
-        "description":"mobileapp",
-        "imgurl":"images/portfolio/phone.jpg"
-      }
     ],
     "testimonials":[
       {

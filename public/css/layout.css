@@ -169,7 +169,7 @@ ul#nav li a {
    line-height: 32px;
 	text-decoration: none;
    text-align: left;
-   color: #fff;
+   color: rgb(70, 70, 70);
 
 	-webkit-transition: color .2s ease-in-out;
 	-moz-transition: color .2s ease-in-out;
@@ -346,10 +346,23 @@ ul#nav li.current a { color: #F06000; }
   	-webkit-animation: css 2s ease;
 }
 .html5 {
-  	width: 80%;
+  	width: 95%;
   	-moz-animation: html5 2s ease;
   	-webkit-animation: html5 2s ease;
 }
+
+.reactjs {
+   width: 80%;
+   -moz-animation: html5 2s ease;
+   -webkit-animation: html5 2s ease;
+}
+
+.python {
+   width: 70%;
+   -moz-animation: html5 2s ease;
+   -webkit-animation: html5 2s ease;
+}
+
 .jquery {
   	width: 50%;
   	-moz-animation: jquery 2s ease;
