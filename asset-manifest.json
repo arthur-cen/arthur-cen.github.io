@@ -1,0 +1,21 @@
+{
+  "files": {
+    "main.css": "/shengrui-portfolio/static/css/main.e8c24495.chunk.css",
+    "main.js": "/shengrui-portfolio/static/js/main.3a9488a4.chunk.js",
+    "main.js.map": "/shengrui-portfolio/static/js/main.3a9488a4.chunk.js.map",
+    "runtime-main.js": "/shengrui-portfolio/static/js/runtime-main.7bd6fabd.js",
+    "runtime-main.js.map": "/shengrui-portfolio/static/js/runtime-main.7bd6fabd.js.map",
+    "static/js/2.d7fb2aca.chunk.js": "/shengrui-portfolio/static/js/2.d7fb2aca.chunk.js",
+    "static/js/2.d7fb2aca.chunk.js.map": "/shengrui-portfolio/static/js/2.d7fb2aca.chunk.js.map",
+    "index.html": "/shengrui-portfolio/index.html",
+    "precache-manifest.dc8abd4f2977e630cfed1d831ac0ba51.js": "/shengrui-portfolio/precache-manifest.dc8abd4f2977e630cfed1d831ac0ba51.js",
+    "service-worker.js": "/shengrui-portfolio/service-worker.js",
+    "static/css/main.e8c24495.chunk.css.map": "/shengrui-portfolio/static/css/main.e8c24495.chunk.css.map"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.7bd6fabd.js",
+    "static/js/2.d7fb2aca.chunk.js",
+    "static/css/main.e8c24495.chunk.css",
+    "static/js/main.3a9488a4.chunk.js"
+  ]
+}
