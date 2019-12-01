@@ -1,7 +1,7 @@
 let resumeData = {
     "imagebaseurl":"https://www.linkedin.com/in/shengrui-cen/",
     "name": "Shengrui Cen",
-    "role": "a Programmer/Product Developer/Innovator",
+    "role": "Programmer/Product Developer/Innovator",
     "linkedinId":"shengrui-cen",
     "skypeid": "carlcen93",
     "roleDescription": "I believe human can make the world a better place to live in not only for human but also for all the living beings by ethical design and responsible technology improvements.",
@@ -74,6 +74,12 @@ let resumeData = {
         "imgurl":"images/portfolio/smartSortKiosk.png",
         "projectUrl": "https://github.com/arthur-cen/smartTrashBin"
       },
+      {
+        "name": "Quote",
+        "description": "An IoT bookcase that show you the quote from your favorite book.",
+        "imgurl": "images/portfolio/QuotePoster.jpeg",
+        "projectUrl": "https://github.com/arthur-cen/smart_bookcase"
+      }
     ],
     "testimonials":[
       {
