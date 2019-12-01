@@ -55,10 +55,10 @@ let resumeData = {
     "skillsDescription":"Programming Skills",
     "skills":[
       {
-        "skillname":"HTML5"
+        "skillname":"Reactjs"
       },
       {
-        "skillname":"Reactjs"
+        "skillname":"HTML5"
       },
       {
         "skillname":"CSS"
@@ -69,16 +69,16 @@ let resumeData = {
     ],
     "portfolio":[
       {
-        "name":"SmartSort Kiosk",
-        "description":"A Smart Trash Bin Kiosk categorizes trash using CV based Artificial Intelligence. ",
-        "imgurl":"images/portfolio/smartSortKiosk.png",
-        "projectUrl": "https://github.com/arthur-cen/smartTrashBin"
-      },
-      {
         "name": "Quote",
         "description": "An IoT bookcase that show you the quote from your favorite book.",
         "imgurl": "images/portfolio/QuotePoster.jpeg",
         "projectUrl": "https://github.com/arthur-cen/smart_bookcase"
+      },
+      {
+        "name":"SmartSort Kiosk",
+        "description":"A Smart Trash Bin Kiosk categorizes trash using CV based Artificial Intelligence. ",
+        "imgurl":"images/portfolio/smartSortKiosk.png",
+        "projectUrl": "https://github.com/arthur-cen/smartTrashBin"
       }
     ],
     "testimonials":[
