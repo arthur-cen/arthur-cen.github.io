@@ -19,7 +19,7 @@ let resumeData = {
       ],
     "aboutme":"I am a current student studying Innovative Product and Services in Carnegie Mellon University, Integrated Innovation Institute. I believe good product and services design elicit happiness in people and creates a better environment.",
     "address":"Carnegie Mellon University",
-    "website":"https://arthurcen.me",
+    "website":"https://shengruicen.com",
     "education":[
       {
         "UniversityName":"Carnegie Mellon University",
@@ -72,7 +72,7 @@ let resumeData = {
         "name":"SmartSort Kiosk",
         "description":"A Smart Trash Bin Kiosk categorizes trash using CV based Artificial Intelligence. ",
         "imgurl":"images/portfolio/smartSortKiosk.png",
-        "projectUrl": "https://github.com/arthur-cen/smartTrashBin/blob/master/smart_sort.ipynb"
+        "projectUrl": "https://github.com/arthur-cen/smartTrashBin"
       },
     ],
     "testimonials":[
