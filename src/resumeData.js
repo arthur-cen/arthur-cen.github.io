@@ -69,6 +69,12 @@ let resumeData = {
     ],
     "portfolio":[
       {
+        "name":"BeerBox",
+        "description":"A scavenger hunt uses IoT functionality to connect a series of challenges across the CMU campus. Winner gets beer.",
+        "imgurl":"images/portfolio/beerBox.jpeg",
+        "projectUrl": "https://github.com/arthur-cen/beerBox"
+      },
+      {
         "name": "Quote",
         "description": "An IoT bookcase that show you the quote from your favorite book.",
         "imgurl": "images/portfolio/QuotePoster.jpeg",
