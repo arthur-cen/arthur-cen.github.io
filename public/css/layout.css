@@ -35,7 +35,10 @@ header {
    width: 100%;
    background: #161415 url(../images/header-background.jpg) no-repeat top center;
    background-size: cover !important;
-	-webkit-background-size: cover !important;
+   -webkit-background-size: cover !important;
+   background-attachment: fixed;
+   background-position: center;
+   background-repeat: no-repeat;
    text-align: center;
    overflow: hidden;
 }
