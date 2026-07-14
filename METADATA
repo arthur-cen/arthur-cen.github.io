@@ -1,0 +1,4 @@
+name: "gtech_gtg_demo_site"
+description: "Static website designed to demo Google Tag Gateway implementation on Cloudflare CDN and Advanced Consent Mode using Klaro consent manager."
+type: OTHER
+metadata_source: PROMOTED

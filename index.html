@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Google Tag Gateway & Consent Mode v2 Demo Site</title>
+  
+  <!-- 1. Google Consent Mode v2 Default Settings (Must be set BEFORE GTM loads) -->
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    
+    // Set default consent to 'denied' for all parameters (Advanced Consent Mode)
+    gtag('consent', 'default', {
+      'ad_storage': 'denied',
+      'analytics_storage': 'denied',
+      'ad_user_data': 'denied',
+      'ad_personalization': 'denied',
+      'wait_for_update': 500
+    });
+    
+    // Optional: Redact ads data when consent is denied
+    gtag('set', 'ads_data_redaction', true);
+  </script>
+
+  <!-- 2. Google Tag Manager Container (Modified to load via Google Tag Gateway path) -->
+  <script>
+    (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+    new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+    j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+    '/metrics/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+    })(window,document,'script','dataLayer','GTM-NNCLVZ3');
+  </script>
+  <!-- End Google Tag Manager -->
+
+  <!-- 3. Klaro Consent Banner Styles and Config -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/klaro@0.7.22/dist/klaro.min.css" />
+  <script src="js/klaro-config.js"></script>
+  <!-- Defer Klaro script loading to let page parse -->
+  <script defer src="https://cdn.jsdelivr.net/npm/klaro@0.7.22/dist/klaro.js"></script>
+
+  <!-- Custom Site Styles -->
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <!-- Google Tag Manager (noscript) -->
+  <noscript><iframe src="/metrics/ns.html?id=GTM-NNCLVZ3"
+  height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+  <!-- End Google Tag Manager (noscript) -->
+
+  <header>
+    <div class="nav-container">
+      <a href="index.html" class="logo">GTG Demo Site</a>
+      <nav>
+        <a href="index.html" class="active">Home</a>
+        <a href="contact.html">Form Submission</a>
+      </nav>
+    </div>
+  </header>
+
+  <div class="container">
+    <main class="main-content">
+      <h1>Google Tag Gateway & Consent Mode v2 Demo</h1>
+      <p>Welcome! This static website is a simplified environment configured for testing and demonstrating Google measurement setup.</p>
+      
+      <div class="grid">
+        <div class="card">
+          <h3>Google Tag Gateway (GTG)</h3>
+          <p>Google Tag Gateway is set up on this website using a <strong>Cloudflare Snippet</strong>. It routes all tagging requests sent to <code>/metrics/*</code> through your first-party domain, proxying them to Google serving hosts and forwarding visitor geolocation headers.</p>
+        </div>
+        <div class="card">
+          <h3>Tag Container</h3>
+          <p>The container <code>GTM-NNCLVZ3</code> is configured using <strong>server-side tagging</strong>. It receives event data from the website first-party endpoint, processes it, and routes it to destinations.</p>
+        </div>
+        <div class="card" style="grid-column: span 2;">
+          <h3>Consent Mode</h3>
+          <p>Google Consent Mode v2 is configured using the open-source <strong>Klaro</strong> consent manager. On initial page load, default consent is set to <code>denied</code>. User consent settings are dynamically mapped to Google Consent parameters. When accepted, the consent state updates instantly in GTM.</p>
+        </div>
+      </div>
+
+      <div style="margin-top: 2rem;">
+        <button onclick="klaro.show(window.klaroConfig)" class="btn">Manage Consent Preferences</button>
+      </div>
+    </main>
+
+    <aside class="sidebar">
+      <div class="widget">
+        <h3>Real-Time Consent Status</h3>
+        <p style="font-size: 0.85rem; color: #5f6368; margin-top: -0.5rem; margin-bottom: 1rem;">Current states in Google Tag Container:</p>
+        
+        <div class="status-row">
+          <span>analytics_storage</span>
+          <span id="status-analytics_storage" class="status-badge status-denied">DENIED</span>
+        </div>
+        <div class="status-row">
+          <span>ad_storage</span>
+          <span id="status-ad_storage" class="status-badge status-denied">DENIED</span>
+        </div>
+        <div class="status-row">
+          <span>ad_user_data</span>
+          <span id="status-ad_user_data" class="status-badge status-denied">DENIED</span>
+        </div>
+        <div class="status-row">
+          <span>ad_personalization</span>
+          <span id="status-ad_personalization" class="status-badge status-denied">DENIED</span>
+        </div>
+      </div>
+    </aside>
+  </div>
+
+  <footer>
+    <p>&copy; 2026 Google Tag Gateway Cloudflare Demo Website | arthurcen.gtgtest2.dev</p>
+  </footer>
+
+  <!-- Real-Time UI updates -->
+  <script src="js/demo-helper.js"></script>
+</body>
+</html>

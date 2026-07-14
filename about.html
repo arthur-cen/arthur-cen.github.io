@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>About Google Tag Gateway - GTG Demo Site</title>
+  
+  <!-- 1. Google Consent Mode v2 Default Settings (Must be set BEFORE GTM loads) -->
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    
+    // Set default consent to 'denied' for all parameters (Advanced Consent Mode)
+    gtag('consent', 'default', {
+      'ad_storage': 'denied',
+      'analytics_storage': 'denied',
+      'ad_user_data': 'denied',
+      'ad_personalization': 'denied',
+      'wait_for_update': 500
+    });
+    
+    // Optional: Redact ads data when consent is denied
+    gtag('set', 'ads_data_redaction', true);
+  </script>
+
+  <!-- 2. Google Tag Manager Container (Modified to load via Google Tag Gateway path) -->
+  <script>
+    (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+    new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+    j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+    '/metrics/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+    })(window,document,'script','dataLayer','GTM-NNCLVZ3');
+  </script>
+  <!-- End Google Tag Manager -->
+
+  <!-- 3. Klaro Consent Banner Styles and Config -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/klaro@0.7.22/dist/klaro.min.css" />
+  <script src="js/klaro-config.js"></script>
+  <!-- Defer Klaro script loading to let page parse -->
+  <script defer src="https://cdn.jsdelivr.net/npm/klaro@0.7.22/dist/klaro.js"></script>
+
+  <!-- Custom Site Styles -->
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <!-- Google Tag Manager (noscript) -->
+  <noscript><iframe src="/metrics/ns.html?id=GTM-NNCLVZ3"
+  height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+  <!-- End Google Tag Manager (noscript) -->
+
+  <header>
+    <div class="nav-container">
+      <a href="index.html" class="logo">GTG Demo Site</a>
+      <nav>
+        <a href="index.html">Home</a>
+        <a href="about.html" class="active">About GTG</a>
+        <a href="contact.html">Contact Form</a>
+      </nav>
+    </div>
+  </header>
+
+  <div class="container">
+    <main class="main-content">
+      <h1>Understanding Google Tag Gateway (GTG)</h1>
+      <p>Historically, the Google Tag loads directly from <code>www.googletagmanager.com/gtm.js</code> or <code>www.google-analytics.com/analytics.js</code>. While this works fine, modern privacy architectures and strict security headers benefit significantly from routing these scripts through a first-party subdomain or path.</p>
+      
+      <h3>Key Advantages of first-party loading:</h3>
+      <ul>
+        <li><strong>Security:</strong> Restricts the number of third-party domains in your site's Content Security Policy (CSP).</li>
+        <li><strong>Reliability:</strong> Reduces block rates from standard client-side script filtering that specifically target third-party script hostnames.</li>
+        <li><strong>Attribution:</strong> Keeps measurement signals resilient against third-party cookie constraints by associating cookies directly with the root domain.</li>
+      </ul>
+
+      <h2>The Cloudflare Snippet / Worker Proxy</h2>
+      <p>Under the hood, this website is configured with a Cloudflare Snippet (or Worker) that matches the path <code>/metrics/*</code>. When a user loads this path, Cloudflare intercepts the request and forwards it to Google's First Party Serving endpoints: </p>
+      
+      <pre style="background: #f1f3f4; padding: 1rem; border-radius: 6px; font-family: monospace; font-size: 0.9rem; overflow-x: auto;">
+export default {
+  async fetch(request) {
+    const url = new URL(request.url);
+    
+    // Rewrite target to point to Google Tag Gateway endpoint
+    url.hostname = "GTM-NNCLVZ3.fps.goog";
+    
+    const newRequest = new Request(url, request);
+    newRequest.headers.set('X-Gtg-Implementation', 'Snippet');
+    
+    return await fetch(url, newRequest);
+  }
+};
+      </pre>
+
+      <p>Crucially, Cloudflare passes the geolocation headers (<code>CF-IPCountry</code>, <code>CF-Region</code>, etc.) which Google uses to determine user regions and apply region-specific consent rules (such as EEA regulations).</p>
+      
+      <h2>Advanced Consent Mode v2 Handshake</h2>
+      <p>Advanced Consent Mode operates as follows:</p>
+      <ol>
+        <li>Initial page load hits. Consent defaults are immediately set to <code>denied</code>.</li>
+        <li>GTM loads from <code>/metrics/gtm.js</code>. Because consent is denied, no tracking cookies are read or set, but cookieless pings are sent.</li>
+        <li>Klaro loads, displays the notice, or reads existing cookie state.</li>
+        <li>If user accepts, <code>gtag('consent', 'update', { ...: 'granted' })</code> is triggered. Tags instantly change their behavior, loading cookies and resuming normal tracking.</li>
+      </ol>
+    </main>
+
+    <aside class="sidebar">
+      <div class="widget">
+        <h3>Real-Time Consent Status</h3>
+        <p style="font-size: 0.85rem; color: #5f6368; margin-top: -0.5rem; margin-bottom: 1rem;">Current states in Google Tag Container:</p>
+        
+        <div class="status-row">
+          <span>analytics_storage</span>
+          <span id="status-analytics_storage" class="status-badge status-denied">DENIED</span>
+        </div>
+        <div class="status-row">
+          <span>ad_storage</span>
+          <span id="status-ad_storage" class="status-badge status-denied">DENIED</span>
+        </div>
+        <div class="status-row">
+          <span>ad_user_data</span>
+          <span id="status-ad_user_data" class="status-badge status-denied">DENIED</span>
+        </div>
+        <div class="status-row">
+          <span>ad_personalization</span>
+          <span id="status-ad_personalization" class="status-badge status-denied">DENIED</span>
+        </div>
+      </div>
+
+      <div class="widget">
+        <h3>DataLayer Events Tracker</h3>
+        <p style="font-size: 0.85rem; color: #5f6368; margin-top: -0.5rem; margin-bottom: 1rem;">Last 6 events pushed to dataLayer:</p>
+        <ul id="datalayer-events" class="events-list">
+          <li class="datalayer-event-item">Waiting for events...</li>
+        </ul>
+      </div>
+    </aside>
+  </div>
+
+  <footer>
+    <p>&copy; 2026 Google Tag Gateway Cloudflare Demo Website | arthurcen.gtgtest2.dev</p>
+  </footer>
+
+  <!-- Real-Time UI updates -->
+  <script src="js/demo-helper.js"></script>
+</body>
+</html>
